@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<div>
+    <form method="POST" enctype="multipart/form-data" action="/spittles//register" th:object="${user}">
+        <table>
+            <tr><td>Username:</td><td><input type="text" name="username"></td></tr>
+            <tr><td>Password:</td><td><input type="password" name="password"></td></tr>
+            <tr><td>File to upload:</td><td><input type="file" name="file" accept="image/jpeg, image/png, image/gif" /></td></tr>
+            <tr><td></td><td><input type="submit" value="Upload" /></td></tr>
+        </table>
+    </form>
+</div>
+<div>
+    <ul>
+        <li th:each="file : ${files}">
+            <a th:href="${file}" th:text="${file}" ></a>
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

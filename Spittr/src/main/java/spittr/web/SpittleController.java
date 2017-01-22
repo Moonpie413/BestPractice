@@ -5,10 +5,13 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import spittr.data.SpittrRepository;
 import spittr.pojo.User;
 
 import javax.validation.Valid;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by wangxh on 17-1-5.
@@ -25,7 +28,7 @@ public class SpittleController {
         this.repository = repository;
     }
 
-    @GetMapping
+    @RequestMapping(method = RequestMethod.GET)
     public String spittles(
             @RequestParam(value = "max", defaultValue = "100000") long max,
             @RequestParam(value = "count", defaultValue = "20") int count, Model model) {
@@ -33,24 +36,27 @@ public class SpittleController {
         return "spittles";
     }
 
-    @GetMapping("/{spittleId}")
+    @RequestMapping(value = "/{spittleId}", method = RequestMethod.GET)
     public String stitter(@PathVariable Long spittleId, Model model) {
         model.addAttribute("spittle", repository.findOne(spittleId));
         return "spittle";
     }
 
-    @GetMapping("/register")
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     public String showRegisterForm(Model model) {
         model.addAttribute(new User());
         return "registerForm";
     }
 
-    @PostMapping("/register")
-    public String processRegister(@Valid User user, BindingResult bindingResult, Model model) {
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    public @ResponseBody Map<String, String> processRegister(
+            @RequestPart MultipartFile file, @Valid User user, BindingResult bindingResult, Model model) {
+        Map<String, String> datas = new HashMap<>();
         if (bindingResult.hasErrors()) {
-            return "registerForm";
+            datas.put("error", bindingResult.getAllErrors().toString());
         }
-        model.addAttribute("user", user);
-        return "showuser";
+        datas.put("username", user.getUsername());
+        datas.put("filename", file.getOriginalFilename());
+        return datas;
     }
 }
