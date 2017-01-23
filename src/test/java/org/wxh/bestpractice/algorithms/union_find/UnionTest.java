@@ -5,8 +5,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.wxh.bestpractice.algorithms.union_find.impl.QuickFind;
-import org.wxh.bestpractice.algorithms.union_find.impl.QuickUnion;
-import org.wxh.bestpractice.algorithms.union_find.impl.UnionFind;
+import org.wxh.bestpractice.algorithms.union_find.impl.ArrayQuickUnion;
+import org.wxh.bestpractice.algorithms.union_find.impl.ArrayUnionFind;
 
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
@@ -38,17 +38,17 @@ public class UnionTest {
     @Test
     public void testQuickUnion() {
         Stopwatch stopwatch = new Stopwatch();
-        this.union = new QuickUnion(scanner.nextInt());
+        this.union = new ArrayQuickUnion(scanner.nextInt());
         run();
-        System.out.printf("QuickUnion 用时 %f 秒", stopwatch.elapsedTime());
+        System.out.printf("ArrayQuickUnion 用时 %f 秒", stopwatch.elapsedTime());
     }
 
     @Test
     public void testUnionFind() {
         Stopwatch stopwatch = new Stopwatch();
-        this.union = new UnionFind(scanner.nextInt());
+        this.union = new ArrayUnionFind(scanner.nextInt());
         run();
-        System.out.printf("UnionFind 用时 %f 秒", stopwatch.elapsedTime());
+        System.out.printf("ArrayUnionFind 用时 %f 秒", stopwatch.elapsedTime());
     }
 
     private void run() {

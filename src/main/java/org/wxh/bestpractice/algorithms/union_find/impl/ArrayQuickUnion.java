@@ -1,13 +1,13 @@
 package org.wxh.bestpractice.algorithms.union_find.impl;
 
-import org.wxh.bestpractice.algorithms.union_find.AbstractUnion;
+import org.wxh.bestpractice.algorithms.union_find.AbstractArrayUnion;
 
 /**
  * Created by maroon on 17-1-22.
  * DES:
  */
-public class QuickUnion extends AbstractUnion{
-    public QuickUnion(int N) {
+public class ArrayQuickUnion extends AbstractArrayUnion {
+    public ArrayQuickUnion(int N) {
         super(N);
     }
 

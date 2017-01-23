@@ -1,14 +1,14 @@
 package org.wxh.bestpractice.algorithms.union_find.impl;
 
-import org.wxh.bestpractice.algorithms.union_find.AbstractUnion;
+import org.wxh.bestpractice.algorithms.union_find.AbstractArrayUnion;
 
 /**
  * Created by maroon on 17-1-22.
  * DES:
  */
-public class UnionFind extends AbstractUnion{
+public class ArrayUnionFind extends AbstractArrayUnion {
     private int[] sz; // 保存根节点上的子节点数量
-    public UnionFind(int N) {
+    public ArrayUnionFind(int N) {
         super(N);
         this.sz = new int[N];
         for (int i = 0; i < N; i++) sz[i] = 1;

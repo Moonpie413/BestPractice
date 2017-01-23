@@ -1,13 +1,13 @@
 package org.wxh.bestpractice.algorithms.union_find.impl;
 
-import org.wxh.bestpractice.algorithms.union_find.AbstractUnion;
+import org.wxh.bestpractice.algorithms.union_find.AbstractArrayUnion;
 
 /**
  * Created by maroon on 17-1-22.
  * DES: 快速find算法
  * 详细参考算法第四版 1.5.2.1
  */
-public class QuickFind extends AbstractUnion {
+public class QuickFind extends AbstractArrayUnion {
 
     public QuickFind(int N) {
         super(N);

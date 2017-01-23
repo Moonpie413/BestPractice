@@ -1,17 +1,15 @@
 package org.wxh.bestpractice.algorithms.union_find;
 
-import edu.princeton.cs.algs4.StdIn;
-
 /**
  * Created by maroon on 17-1-22.
  * DES:
  */
-public abstract class AbstractUnion implements IUnion{
+public abstract class AbstractArrayUnion implements IUnion{
 
     protected int[] idArray;
     protected int count;
 
-    public AbstractUnion(int N) {
+    public AbstractArrayUnion(int N) {
         this.count = N;
         this.idArray = new int[N];
         for (int i = 0; i < N; i++) idArray[i] = i;
