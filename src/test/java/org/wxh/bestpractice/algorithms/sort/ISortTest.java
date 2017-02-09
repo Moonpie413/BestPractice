@@ -1,14 +1,11 @@
 package org.wxh.bestpractice.algorithms.sort;
 
-import edu.princeton.cs.algs4.RandomSeq;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.wxh.bestpractice.algorithms.sort.impl.*;
 
-import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 /**
